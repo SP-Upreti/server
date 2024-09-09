@@ -1,10 +1,11 @@
 const nodemailer = require("nodemailer");
 
 const sendMail = async (req, res) => {
-    const { receiver } = req.body;
+    const { receiver: mail } = req.body; // Destructure correctly
+    console.log("receiver:", mail);
 
-    // Check if receiver is provided
-    if (!receiver) {
+    // Check if mail is provided
+    if (!mail) {
         return res.status(400).json({ success: false, message: "Receiver email is required" });
     }
 
@@ -21,7 +22,7 @@ const sendMail = async (req, res) => {
         // Sending email
         let info = await transporter.sendMail({
             from: '"OTP Sender" <surendraexperiment@gmail.com>', // sender address
-            to: receiver, // list of receivers
+            to: mail, // list of receivers
             subject: "OTP CODE", // Subject line
             text: "Hello There", // plain text body
             html: "<b>Your secret key is</b>: <h1>231524</h1> Please do not share with anyone. Thank you", // html body
