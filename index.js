@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+// const nodemailer = require("nodemailer");
+const sendMail = require("./nodemailer/sendMial")
 
 app.use(cors());
 
@@ -12,12 +14,15 @@ app.use(express.json());
 app.get('/authenticate', (req, res) => {
     res.json({ code });
 });
-app.get("/", () => {
+
+app.get("/", (req, res) => {
     res.send("Hello")
 })
+
+app.get("/sendMail", sendMail);
+
 app.post('/verify', (req, res) => {
     const { code: inputCode } = req.body;
-
     if (inputCode == code) {
         res.json({ success: true, message: 'success' });
     } else {
