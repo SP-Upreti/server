@@ -12,9 +12,11 @@ app.use(express.json());
 app.get('/authenticate', (req, res) => {
     res.json({ code });
 });
-
+app.get("/", () => {
+    res.send("Hello")
+})
 app.post('/verify', (req, res) => {
-    const { code: inputCode } = req.body; 
+    const { code: inputCode } = req.body;
 
     if (inputCode == code) {
         res.json({ success: true, message: 'success' });
