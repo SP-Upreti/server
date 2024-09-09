@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 // const nodemailer = require("nodemailer");
 const sendMail = require("./nodemailer/sendMial")
+app.options('*', cors()); // Enable preflight requests for all routes
 
 app.use(cors());
 
