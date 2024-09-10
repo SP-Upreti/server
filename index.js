@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
     res.send("Hello")
 })
 
-app.get("/sendMail", sendMail);
+app.post("/sendMail", sendMail);
 
 app.post('/verify', (req, res) => {
     const { code: inputCode } = req.body;

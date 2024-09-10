@@ -2,12 +2,12 @@ const nodemailer = require("nodemailer");
 
 const sendMail = async (req, res) => {
     const { receiver: mail } = req.body; // Destructure correctly
-    console.log("receiver:", mail);
+    // console.log("receiver:", mail);
 
     // Check if mail is provided
-    if (!mail) {
-        return res.status(400).json({ success: false, message: "Receiver email is required" });
-    }
+    // if (!mail) {
+    //     return res.status(400).json({ success: false, message: "Receiver email is required" });
+    // }
 
     try {
         // Create a transporter using your Gmail account
