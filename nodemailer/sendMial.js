@@ -21,9 +21,9 @@ const sendMail = async (req, res) => {
 
         // Sending email
         let info = await transporter.sendMail({
-            from: '"OTP Sender" <surendraexperiment@gmail.com>', // sender address
+            from: '"OTP" <surendraexperiment@gmail.com>', // sender address
             to: mail, // list of receivers
-            subject: "OTP CODE", // Subject line
+            subject: "OTP From Surendra", // Subject line
             text: "Hello There", // plain text body
             html: "<b>Your secret key is</b>: <h1>231524</h1> Please do not share with anyone. Thank you", // html body
         });
